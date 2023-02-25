@@ -4,7 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            IntroducingTask.CreateAndStartSimpleTasks();
+            //IntroducingTask.TasksWithState();
+            //IntroducingTask.TasksWithReturnValues();
+
+            Console.WriteLine("Main program done, press any key.");
+            Console.ReadKey();
         }
     }
 }
