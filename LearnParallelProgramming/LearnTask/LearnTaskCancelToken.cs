@@ -18,8 +18,7 @@ namespace LearnParallelProgramming.LearnTask
                 int i = 0;
                 while (true)
                 {
-                    if (token.IsCancellationRequested)
-                        throw new OperationCanceledException();
+                    token.ThrowIfCancellationRequested();//canonical way to recommand to use
                     Console.WriteLine($"{i++}\t");
                 }
             }, token);
