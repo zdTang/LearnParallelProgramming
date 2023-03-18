@@ -16,6 +16,7 @@ namespace LearnParallelProgramming.LearnTask
             token.Register(() =>
             {
                 Console.WriteLine("Notification: thread is cancelled");
+                Console.WriteLine($"\nIn token.Register:  {Task.CurrentId} processing ...");
             });
 
             var t = new Task(() =>
@@ -28,6 +29,16 @@ namespace LearnParallelProgramming.LearnTask
                 }
             }, token);
             t.Start();
+
+            // Another Task start when the Task is cancelled ????
+            Task.Factory.StartNew(() =>
+                {
+                    token.WaitHandle.WaitOne();
+                    Console.WriteLine($"\nIn WaitHandle:  {Task.CurrentId} processing ...");
+                    Console.WriteLine("Wait handle released, cancelation was requested");
+                }
+            );
+
             Console.WriteLine("press one key to stop");
             Console.ReadKey();
             cts.Cancel();
