@@ -19,7 +19,7 @@ namespace LearnParallelProgramming.LearnTask
                 while (true)
                 {
                     if (token.IsCancellationRequested)
-                        break;
+                        throw new OperationCanceledException();
                     Console.WriteLine($"{i++}\t");
                 }
             }, token);
