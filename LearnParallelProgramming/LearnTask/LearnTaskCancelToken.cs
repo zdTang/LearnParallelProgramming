@@ -12,6 +12,11 @@ namespace LearnParallelProgramming.LearnTask
         {
             var cts = new CancellationTokenSource();
             var token = cts.Token;
+            // Register a notification once cancel a Task
+            token.Register(() =>
+            {
+                Console.WriteLine("Notification: thread is cancelled");
+            });
 
             var t = new Task(() =>
             {
