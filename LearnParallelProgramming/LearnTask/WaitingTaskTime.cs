@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LearnParallelProgramming.LearnTask
 {
-    public class WaitingTask
+    public class WaitingTaskTime
     {
         public static void Wait()
         {

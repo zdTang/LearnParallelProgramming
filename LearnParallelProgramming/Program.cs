@@ -13,8 +13,10 @@ namespace LearnParallelProgramming
             //================Cancel Token  =======
             //LearnTaskCancelToken.CancelTask();
             //== Waiting some time
-            WaitingTask.Wait();
-            Console.WriteLine($"\nIn Main:  {Task.CurrentId} processing ...");
+            //WaitingTaskTime.Wait();
+            WaitTaskFinish.Test();
+            Console.WriteLine($"\nBack to Main:  {Task.CurrentId} processing ...");
+            Console.ReadKey();
             Console.WriteLine("Main program done, press any key.");
         }
     }
