@@ -16,7 +16,6 @@ namespace LearnParallelProgramming
             WaitingTask.Wait();
             Console.WriteLine($"\nIn Main:  {Task.CurrentId} processing ...");
             Console.WriteLine("Main program done, press any key.");
-            Console.ReadKey();
         }
     }
 }
