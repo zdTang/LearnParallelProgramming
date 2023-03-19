@@ -20,6 +20,7 @@ namespace LearnParallelProgramming.LearnTask
             });
             // Here, we don't wait
             // the Main thread will go first, so that those EXCEPTION WILL NOT DISPLAY
+            Task.WaitAll(t, t2);
         }
     }
 }
