@@ -26,8 +26,17 @@ namespace LearnParallelProgramming.LearnTask
             }
             catch (AggregateException ae)
             {
-                foreach (var e in ae.InnerExceptions)
-                    Console.WriteLine($"Exception {e.GetType} from {e.Source}");
+                //foreach (var e in ae.InnerExceptions)
+                //    Console.WriteLine($"Exception {e.GetType} from {e.Source}");
+                ae.Handle(e =>
+                {
+                    if (e is InvalidOperationException)
+                    {
+                        Console.WriteLine("Invalid op!");
+                        return true;
+                    }
+                    return false;
+                });
             }
         }
     }
