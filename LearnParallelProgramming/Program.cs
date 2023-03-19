@@ -14,7 +14,8 @@ namespace LearnParallelProgramming
             //LearnTaskCancelToken.CancelTask();
             //== Waiting some time
             //WaitingTaskTime.Wait();
-            WaitTaskFinish.Test();
+            //WaitTaskFinish.Test();
+            TaskException.Test();
             Console.WriteLine($"\nBack to Main:  {Task.CurrentId} processing ...");
             Console.ReadKey();
             Console.WriteLine("Main program done, press any key.");
