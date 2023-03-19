@@ -15,7 +15,16 @@ namespace LearnParallelProgramming
             //== Waiting some time
             //WaitingTaskTime.Wait();
             //WaitTaskFinish.Test();
-            TaskException.Test();
+            try
+            {
+                TaskException.Test();
+            }
+            catch (AggregateException ae)
+            {
+                foreach (var e in ae.InnerExceptions)
+                    Console.WriteLine($"Exception {e.GetType} from {e.Source}");
+            }
+
             Console.WriteLine($"\nBack to Main:  {Task.CurrentId} processing ...");
             Console.ReadKey();
             Console.WriteLine("Main program done, press any key.");

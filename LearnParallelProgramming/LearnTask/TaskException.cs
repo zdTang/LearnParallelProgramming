@@ -8,7 +8,7 @@ namespace LearnParallelProgramming.LearnTask
 {
     public class TaskException
     {
-        public static async void Test()
+        public static void Test()// Don't put "async" if there is no "await" in the method
         {
             var t = Task.Factory.StartNew(() =>
             {
@@ -33,9 +33,9 @@ namespace LearnParallelProgramming.LearnTask
                     if (e is InvalidOperationException)
                     {
                         Console.WriteLine("Invalid op!");
-                        return true;
+                        return true;  // Means this Exception will be handled here
                     }
-                    return false;
+                    return false; // will not handled here, will throw
                 });
             }
         }
