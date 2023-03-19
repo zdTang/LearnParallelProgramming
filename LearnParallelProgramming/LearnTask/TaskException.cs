@@ -8,7 +8,7 @@ namespace LearnParallelProgramming.LearnTask
 {
     public class TaskException
     {
-        public static void Test()
+        public static async void Test()
         {
             var t = Task.Factory.StartNew(() =>
             {
@@ -20,7 +20,15 @@ namespace LearnParallelProgramming.LearnTask
             });
             // Here, we don't wait
             // the Main thread will go first, so that those EXCEPTION WILL NOT DISPLAY
-            Task.WaitAll(t, t2);
+            try
+            {
+                Task.WaitAll(t, t2);
+            }
+            catch (AggregateException ae)
+            {
+                foreach (var e in ae.InnerExceptions)
+                    Console.WriteLine($"Exception {e.GetType} from {e.Source}");
+            }
         }
     }
 }
